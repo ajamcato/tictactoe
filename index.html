@@ -1,17 +1,59 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <h1>Browser Template</h1>
-    </body>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <header>
+    <h1>TIC TAC TOE</h1>
+  </header>
+  <section>
+    <div class="container">
+      <div class="board flex-wrap row">
+        <div class="square col-4"></div>
+        <div class="square col-4"></div>
+        <div class="square col-4"></div>
+        <div class="square col-4"></div>
+        <div class="square col-4"></div>
+        <div class="square col-4"></div>
+        <div class="square col-4"></div>
+        <div class="square col-4"></div>
+        <div class="square col-4"></div>
+      </div>
+    </div>
+  </section>
+
+  <h2 id="message"></h2>
+
+  <h3>Sign Up</h3>
+  <form id="sign-up">
+    <input type="email" name="credentials[email]" placeholder="Enter email">
+    <input type="password" name="credentials[password]" placeholder="Enter password">
+    <input type="password" name="credentials[password_confirmation]" placeholder="Enter password again">
+    <button>Sign up</button>
+  </form>
+
+
+<h3>Sign In</h3>
+<form id="sign-in">
+  <input type="email" name="credentials[email]" placeholder="Enter email">
+  <input type="password" name="credentials[password]" placeholder="Enter Password">
+  <button>Sign In</button>
+</form>
+
+
+
+
+</body>
+
 </html>
