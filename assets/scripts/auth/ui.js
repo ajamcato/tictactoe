@@ -1,4 +1,5 @@
 'use strict'
+const store = require('../store')
 
 const successMessage = function (newText) {
   $('#message').text(newText)
@@ -13,17 +14,47 @@ const failureMessage = function (newText) {
 }
 
 const onSignUpSuccess = () => {
-  console.log('success')
   successMessage('Signed up Successfully!')
-  $('message').css('color', 'green')
+  $('#message').css('color', 'green')
 }
 
 const onSignUpFailure = () => {
   failureMessage('Signed up Failed')
-  $('message').css('color', 'red')
+  $('#message').css('color', 'red')
+}
+const onSignInSuccess = (responseData) => {
+  successMessage('Signed in Successfully')
+  $('#message').css('color', 'green')
+  store.user = responseData.user
 }
 
+const onSignInFailure = function () {
+  $('#message').css('color', 'red')
+}
+
+const onChangePasswordSuccess = function () {
+  successMessage('Changed password successfully')
+}
+
+const onChangePasswordFailure = function () {
+  $('#message').css('color', 'red')
+  failureMessage('Changed password Failed')
+}
+
+const onSignOutSuccess = function () {
+  successMessage('Signed out successfully')
+}
+
+const onSignOutFailure = function () {
+  failureMessage('Signed out failed')
+}
 module.exports = {
   onSignUpSuccess,
-  onSignUpFailure
+  onSignUpFailure,
+  onSignInSuccess,
+  onSignInFailure,
+  onChangePasswordSuccess,
+  onChangePasswordFailure,
+  onSignOutSuccess,
+  onSignOutFailure
 }
