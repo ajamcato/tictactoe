@@ -1,27 +1,12 @@
-'use strict'
+$(document).ready(function () {
+  let player1 = 'X'
+  let player2 = 'O'
 
-const successMessage = function (newText) {
-  $('#message').text(newText)
-  $('#message').removeClass('failure')
-  $('#message').addClass('success')
-}
+  let movesMade = 0
+  let currentMove = 1
 
-const failureMessage = function (newText) {
-  $('#message').text(newText)
-  $('#message').addClass('failure')
-  $('#message').removeClass('success')
-}
+  let sqr = $(".square")
+  sqr.on('click', function(){
 
-const onSignUpSuccess = () => {
-  console.log('success')
-  successMessage('Signed up Successfully!')
-}
-
-const onSignUpFailure = () => {
-  failureMessage('Signed up Failed')
-}
-
-module.exports = {
-  onSignUpSuccess,
-  onSignUpFailure
-}
+  })
+})
