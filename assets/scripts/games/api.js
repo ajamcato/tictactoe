@@ -8,12 +8,7 @@ const createGame = function (event) {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: {
-      id: '',
-      cell: ['','','','','','','','',''],
-      over: '',
-      user: store.user.token
-    }
+    data: {}
   })
 }
 
@@ -23,29 +18,32 @@ const getGame = function (event) {
     url: config.apiUrl + '/games',
     headers: {
       Authorization: 'Token token' + store.user.token
-    },
-    data: {
-      games: [
-        {
-          id: 1,
-          cells: ["o","x","o","x","o","x","o","x","o"],
-          over: true,
-          player_x: {
-            id: 1
-          }
-        }
-      ]
     }
+
   })
 }
 
 const updateGame = function (event) {
-  return $.ajax ({
+  return $.ajax({
     method: 'PATCH',
-    url: config.apiUrl + '/games'/ + store.game.id,
+    url: config.apiUrl + '/games/' + store.game.id,
     headers: {
       Authorization: 'Token token' + store.user.token
     },
-
+    data: {
+      'game': {
+        'cell': {
+          'index': 0,
+          'value': 'x'
+        },
+        'over': false
+      }
+    }
   })
+}
+
+module.exports = {
+  createGame,
+  getGame,
+  updateGame
 }

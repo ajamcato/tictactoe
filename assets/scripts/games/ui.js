@@ -1,12 +1,21 @@
-$(document).ready(function () {
-  let player1 = 'X'
-  let player2 = 'O'
+const store = require('../store')
 
-  let movesMade = 0
-  let currentMove = 1
+const createGameSuccess = function (data) {
+  console.log('it worked', data)
+  // need to post message for user that we created a game successfully
+  // need to store the game
+  store.game = data.game
+}
 
-  let sqr = $(".square")
-  sqr.on('click', function(){
+const updateGameSuccess = function (data) {
+  console.log('update worked', data)
+  // need to post message for user that we created a game successfully
+  // need to store the game
+  store.game = data.game
+}
 
-  })
-})
+
+
+module.exports = {
+  createGameSuccess
+}
