@@ -3,7 +3,7 @@
 const store = {
 
 }
-const gameBoard = ['','','','','','','','','']
+const gameBoard = ['', '', '', '', '', '', '', '', '']
 
 const games = {
 

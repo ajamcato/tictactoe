@@ -1,5 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 
+body{
+  text-align: center;
+}
+
 h1 {
   margin: 1em;
   text-align: center;
@@ -12,9 +16,13 @@ h1 {
 
 }
 
+
+
+
 .hidden {
   visibility: hidden;
 }
+
 
 .square {
   border: 2px solid $black;
@@ -28,5 +36,6 @@ h1 {
   padding: 15px;
   margin-top: 10px;
   font-size: 10px;
+
 
 }

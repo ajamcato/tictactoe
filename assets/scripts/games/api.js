@@ -8,7 +8,7 @@ const createGame = function (event) {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: {}
+    data: '{}'
   })
 }
 
@@ -17,7 +17,7 @@ const getGame = function (event) {
     method: 'GET',
     url: config.apiUrl + '/games',
     headers: {
-      Authorization: 'Token token' + store.user.token
+      Authorization: 'Token token=' + store.user.token
     }
 
   })
@@ -28,7 +28,7 @@ const updateGame = function (event) {
     method: 'PATCH',
     url: config.apiUrl + '/games/' + store.game.id,
     headers: {
-      Authorization: 'Token token' + store.user.token
+      Authorization: 'Token token=' + store.user.token
     },
     data: {
       'game': {
