@@ -9,14 +9,20 @@ body {
 h1 {
   margin: 1em;
   text-align: center;
+  background-color: #A3C3D9;
+  padding: 15px;
+  color: $black;
 
 }
 
-.container {
-  height: 500px;
-  width: 300px;
-  justify-content: center;
+.game {
+  padding: 7px;
+}
 
+.container {
+  height: 100%;
+  width: 50%;
+  justify-content: center;
 
 }
 
@@ -25,24 +31,26 @@ h1 {
   visibility: hidden;
 }
 
-
 .square {
-  border: 2px solid $black;
+  border: 2px solid #A3C3D9;
   cursor: pointer;
   height: 100px;
   width: 100px;
   display: flex;
   justify-content: center;
-  border-left: 0;
-  border-bottom: 0;
-
-
+  border-radius: 7px;
 
 }
 
+.placeholder {
+  padding: 16px;
+  font-size: 16px
+}
+
+
 #restart {
-  padding: 20px;
-  margin: 15px;
+  padding: 10px;
+  margin: 10px;
   font-size: 15px;
 
 }

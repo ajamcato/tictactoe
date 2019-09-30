@@ -8,9 +8,11 @@ let message
 
 const switchPlayer = function () {
   if (currentPlayer === 'X') {
+    $('#game-notification').text('Player Os Turn')
     currentPlayer = 'O'
-  } else if (currentPlayer === 'O') {
+  } else {
     currentPlayer = 'X'
+    $('#game-notification').text('Player Xs Turn')
   }
 }
 
