@@ -10,7 +10,6 @@ const createGameSuccess = function (data) {
 }
 
 const onUpdateGameSuccess = function (data) {
-  console.log('update worked', data)
   // need to post message for user that we created a game successfully
   // $('#message').html('Successful move')
   $('#message').addClass('success message')
@@ -25,9 +24,22 @@ const onUpdateGameFailure = function (data) {
   store.game = data.game
 }
 
+const onGameRecordSuccess = function (data) {
+  $('.game-history').html(data.games.length)
+  console.log(data)
+  // store.game = data.game
+}
+
+const onGameRecordFailure = function (data) {
+  $('#get-history').html('Could not retrieve total games. Please try again')
+  // store.game = data.game
+}
+
 module.exports = {
   createGameSuccess,
   onUpdateGameSuccess,
-  onUpdateGameFailure
+  onUpdateGameFailure,
+  onGameRecordSuccess,
+  onGameRecordFailure
 
 }

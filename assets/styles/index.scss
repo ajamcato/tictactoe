@@ -1,7 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Mansalva&display=swap');
 
-body{
+body {
   text-align: center;
+  font-family: 'Mansalva', cursive;
 }
 
 h1 {
@@ -13,10 +15,10 @@ h1 {
 .container {
   height: 500px;
   width: 300px;
+  justify-content: center;
+
 
 }
-
-
 
 
 .hidden {
@@ -29,13 +31,22 @@ h1 {
   cursor: pointer;
   height: 100px;
   width: 100px;
+  display: flex;
+  justify-content: center;
+  border-left: 0;
+  border-bottom: 0;
+
+
 
 }
 
 #restart {
-  padding: 15px;
-  margin-top: 10px;
-  font-size: 10px;
+  padding: 20px;
+  margin: 15px;
+  font-size: 15px;
 
+}
 
+#get-records {
+  margin: 18px;
 }

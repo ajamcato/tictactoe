@@ -41,6 +41,15 @@ const onNewGame = function (event) {
   api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.onNewGameFailure)
+  $('.square').text('')
+}
+
+// to get game History
+const onGameRecords = function (event) {
+  event.preventDefault()
+  api.getGameTotal()
+    .then(ui.onGameRecordSuccess)
+    .catch(ui.onGameRecordFailure)
 }
 
 // to check winning combinations
@@ -80,5 +89,6 @@ module.exports = {
   onNewGame,
   boardClick,
   currentPlayer,
-  findWinner
+  findWinner,
+  onGameRecords
 }

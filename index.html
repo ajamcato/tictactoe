@@ -17,7 +17,8 @@
   <header>
     <h1>TIC TAC TOE</h1>
   </header>
-  <section>
+  <section id='game'>
+    <button id="restart">New Game</button>
     <div class="container">
       <div class="board flex-wrap row">
         <div id="0" class="square col-4"></div>
@@ -31,17 +32,20 @@
         <div id="8" class="square col-4"></div>
       </div>
       <div>
-        <button id="restart">New Game</button>
+        <form id="get-records">
+          <button type='submit'>Game History</button>
+          <div class="game-history"></div>
+        </form>
       </div>
     </div>
-
   </section>
 
 
   <h2 id="message"></h2>
 
-  <h3>Sign Up</h3>
+
   <form id="sign-up">
+    <h4>Sign Up</h4>
     <input type="email" name="credentials[email]" placeholder="Enter email">
     <input type="password" name="credentials[password]" placeholder="Enter password">
     <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
@@ -49,24 +53,28 @@
   </form>
 
 
-<h3>Sign In</h3>
-<form id="sign-in">
-  <input type="email" name="credentials[email]" placeholder="Enter email">
-  <input type="password" name="credentials[password]" placeholder="Enter Password">
-  <button>Sign In</button>
-</form>
 
-<h3>Change Password</h3>
+  <form id="sign-in">
+    <h4>Sign In</h4>
+    <input type="email" name="credentials[email]" placeholder="Enter email">
+    <input type="password" name="credentials[password]" placeholder="Enter Password">
+    <button>Sign In</button>
+  </form>
+
+
   <form id="change-password">
+    <h4>Change Password</h4>
     <input type="password" name="passwords[old]" placeholder="Enter old password">
     <input type="password" name="passwords[new]" placeholder="Enter new password">
     <button>Change Password</button>
   </form>
 
-<h2>Sign-Out</h2>
+
   <form id="sign-out">
-  <button>Sign Out</button>
+    <h2>Sign-Out</h2>
+    <button>Sign Out</button>
   </form>
+
 
 
 </body>

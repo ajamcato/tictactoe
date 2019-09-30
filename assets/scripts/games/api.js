@@ -1,7 +1,7 @@
 const config = require('../config.js')
 const store = require('../store.js')
 
-const createGame = function (event) {
+const createGame = function(event) {
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/games',
@@ -12,18 +12,17 @@ const createGame = function (event) {
   })
 }
 
-const getGame = function (event) {
+const getGameTotal = function (event) {
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/games',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
-
   })
 }
 
-const updateGame = function (currentPlayer, index) {
+const updateGame = function(currentPlayer, index) {
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/games/' + store.game.id,
@@ -44,6 +43,6 @@ const updateGame = function (currentPlayer, index) {
 
 module.exports = {
   createGame,
-  getGame,
+  getGameTotal,
   updateGame
 }
