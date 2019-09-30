@@ -13,8 +13,6 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
-  // $('#play-game').on('click', gameEvents.onNewGame)
-  $('.square').on('click', gameEvents.boardClick)
   $('#restart').on('click', gameEvents.onNewGame)
-
+  $('.square').on('click', gameEvents.boardClick)
 })

@@ -2,13 +2,10 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('../store.js')
 
-// const player1 = 'X'
-// const player2 = 'O'
-
-let game = ['', '', '', '', '', '', '', '', '']
 let currentPlayer = 'X'
+let winner = false
+let message
 
-// to switch players
 const switchPlayer = function () {
   if (currentPlayer === 'X') {
     currentPlayer = 'O'
@@ -18,19 +15,22 @@ const switchPlayer = function () {
 }
 
 const boardClick = function (event) {
-  if ($(event.target).text() === '') {
+  // if winner or board is full, do not allow anymore clicks.
+  if ($(event.target).text() === '' && winner === false) {
     $(event.target).text(currentPlayer)
-    checkForWin()
-    checkForTie()
-    api.updateGame(event)
-      .then(ui.onUpdateGameSuccess)
+
+    // first update API with the currentplayer and the spot they chose
+    api.updateGame(currentPlayer, event.target.id)
+      // if updating game is successful
+      .then((response) => {
+        // switch player
+        switchPlayer()
+        // save the game board from the API to store
+        ui.onUpdateGameSuccess(response)
+        // check for the winner
+        findWinner()
+      })
       .catch(ui.onUpdateGameFailure)
-    // if (currentPlayer === 'X') {
-    //   currentPlayer === 'O'// store.user playerX data
-    // } else if (currentPlayer === 'O') {
-    //   currentPlayer = 'X' // store.user playerO data
-    // }
-    switchPlayer()
   } else {
     console.log('theres an x here already')
   }
@@ -38,47 +38,47 @@ const boardClick = function (event) {
 
 const onNewGame = function (event) {
   event.preventDefault()
-  const data = event.target
   api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.onNewGameFailure)
 }
 
-const onClickedSquare = function (event) {
-  event.preventDefault()
-  // console.log('clicked')
-  $(event.target).html(currentPlayer)
-}
-
-const checkForWin = function () {
-  if (findWinner === 'true') {
-    $('#message').text('Winner')
- }
-// if winner or board is full, do not allow anymore clicks.
-
-const checkIfBoardFull = function () {
-  console.log('win')
-}
-
-const checkForTie = function () {
-  console.log('tie')
-}
-
 // to check winning combinations
-
- const findWinner = function () {
-  if (game[0] === 'x' && game[1] === 'x' && game[2] === 'x') {
-     return 'Player X Won!'
-     // console.log('player x won')
+const findWinner = function () {
+  if ((store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X') ||
+  (store.game.cells[3] === 'X' && store.game.cells[4] === 'X' && store.game.cells[5] === 'X') ||
+  (store.game.cells[6] === 'X' && store.game.cells[7] === 'X' && store.game.cells[8] === 'X') ||
+  (store.game.cells[0] === 'X' && store.game.cells[4] === 'X' && store.game.cells[8] === 'X') ||
+  (store.game.cells[2] === 'X' && store.game.cells[4] === 'X' && store.game.cells[6] === 'X') ||
+  (store.game.cells[0] === 'X' && store.game.cells[3] === 'X' && store.game.cells[6] === 'X') ||
+  (store.game.cells[2] === 'X' && store.game.cells[5] === 'X' && store.game.cells[8] === 'X') ||
+  (store.game.cells[1] === 'X' && store.game.cells[4] === 'X' && store.game.cells[7] === 'X')) {
+    winner = true
+    message = 'Player X Wins!'
+  } else if ((store.game.cells[0] === 'O' && store.game.cells[1] === 'O' && store.game.cells[2] === 'O') ||
+  (store.game.cells[3] === 'O' && store.game.cells[4] === 'O' && store.game.cells[5] === 'O') ||
+  (store.game.cells[6] === 'O' && store.game.cells[7] === 'O' && store.game.cells[8] === 'O') ||
+  (store.game.cells[0] === 'O' && store.game.cells[4] === 'O' && store.game.cells[8] === 'O') ||
+  (store.game.cells[2] === 'O' && store.game.cells[4] === 'O' && store.game.cells[6] === 'O') ||
+  (store.game.cells[0] === 'O' && store.game.cells[3] === 'O' && store.game.cells[6] === 'O') ||
+  (store.game.cells[2] === 'O' && store.game.cells[5] === 'O' && store.game.cells[8] === 'O') ||
+  (store.game.cells[1] === 'O' && store.game.cells[4] === 'O' && store.game.cells[7] === 'O')) {
+    winner = true
+    message = 'Player O Wins!'
+  } else if (store.game.cells[0] !== '' && store.game.cells[1] !== '' && store.game.cells[2] !== '' &&
+   store.game.cells[3] !== '' && store.game.cells[4] !== '' && store.game.cells[5] !== '' &&
+   store.game.cells[6] !== '' && store.game.cells[7] !== '' && store.game.cells[8] !== '') {
+    winner = true
+    message = 'Game Tied'
+  }
+  if (winner === true) {
+    $('#message').text(message)
   }
 }
 
 module.exports = {
   onNewGame,
   boardClick,
-  onClickedSquare,
   currentPlayer,
-  checkForWin,
-  checkForTie,
   findWinner
 }

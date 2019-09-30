@@ -13,7 +13,7 @@ const createGame = function (event) {
 }
 
 const getGame = function (event) {
-  return $.ajax ({
+  return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/games',
     headers: {
@@ -23,7 +23,7 @@ const getGame = function (event) {
   })
 }
 
-const updateGame = function (event) {
+const updateGame = function (currentPlayer, index) {
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/games/' + store.game.id,
@@ -33,8 +33,8 @@ const updateGame = function (event) {
     data: {
       'game': {
         'cell': {
-          'index': 0,
-          'value': 'x'
+          'index': index,
+          'value': currentPlayer
         },
         'over': false
       }
