@@ -4,14 +4,16 @@
 body {
   text-align: center;
   font-family: 'Mansalva', cursive;
+  background-color: #B7DCFF;
 }
 
 h1 {
   margin: 1em;
   text-align: center;
-  background-color: #A3C3D9;
+  background-color: #495866;
   padding: 15px;
-  color: $black;
+  color: #A3C3D9;
+
 
 }
 
@@ -21,7 +23,7 @@ h1 {
 
 .container {
   height: 100%;
-  width: 50%;
+  width: 35%;
   justify-content: center;
 
 }
@@ -32,13 +34,17 @@ h1 {
 }
 
 .square {
-  border: 2px solid #A3C3D9;
+  border: 2px solid #455360;
   cursor: pointer;
   height: 100px;
-  width: 100px;
+  width: 300px;
   display: flex;
   justify-content: center;
   border-radius: 7px;
+  font-size: 65px;
+  color: #F2E8EC;
+  text-shadow: 3px 3px 5px #000000;
+
 
 }
 
@@ -52,9 +58,12 @@ h1 {
   padding: 10px;
   margin: 10px;
   font-size: 15px;
+  border-spacing: 7px;
 
 }
 
 #get-records {
   margin: 18px;
+  border-spacing: 7px;
+
 }
