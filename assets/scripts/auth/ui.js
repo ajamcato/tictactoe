@@ -40,6 +40,7 @@ const onSignInFailure = function () {
 
 const onChangePasswordSuccess = function () {
   successMessage('Changed password successfully')
+  $('#message').css('color', 'green')
 }
 
 const onChangePasswordFailure = function () {

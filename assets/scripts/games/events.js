@@ -16,7 +16,11 @@ const switchPlayer = function () {
   }
 }
 
+let newGameStarted = false
 const boardClick = function (event) {
+  if (!newGameStarted) {
+    return
+  }
   // if winner or board is full, do not allow anymore clicks.
   if ($(event.target).text() === '' && winner === false) {
     $(event.target).text(currentPlayer)
@@ -40,6 +44,7 @@ const boardClick = function (event) {
 
 const onNewGame = function (event) {
   event.preventDefault()
+  newGameStarted = true
   api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.onNewGameFailure)
@@ -84,6 +89,7 @@ const findWinner = function () {
   }
   if (winner === true) {
     $('#message').text(message)
+    $('#game-notification').html('Game Over')
   }
 }
 

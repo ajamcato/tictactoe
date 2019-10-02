@@ -3,8 +3,8 @@ const store = require('../store')
 const createGameSuccess = function (data) {
   // need to post message for user that we created a game successfully
   $('#message').html('Started New Game')
-  $('#message').addClass('success message')
-  $('#message').removeClass('error message')
+  $('#message').addClass('success-message')
+  $('#message').removeClass('error-message')
   // need to store the game
   store.game = data.game
 }
@@ -12,7 +12,7 @@ const createGameSuccess = function (data) {
 const onUpdateGameSuccess = function (data) {
   // need to post message for user that we created a game successfully
   // $('#message').html('Successful move')
-  $('#message').addClass('success message')
+  $('#message').addClass('success-message')
   // need to store the game
   store.game = data.game
 }
