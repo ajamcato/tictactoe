@@ -7,6 +7,7 @@ const createGameSuccess = function (data) {
   $('#message').removeClass('error-message')
   // need to store the game
   store.game = data.game
+  console.log(store.game.cells)
 }
 
 const onUpdateGameSuccess = function (data) {

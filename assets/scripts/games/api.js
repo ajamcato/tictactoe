@@ -22,7 +22,7 @@ const getGameTotal = function (event) {
   })
 }
 
-const updateGame = function(currentPlayer, index) {
+const updateGame = function(currentPlayer, index, gameOver) {
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/games/' + store.game.id,
@@ -35,7 +35,7 @@ const updateGame = function(currentPlayer, index) {
           'index': index,
           'value': currentPlayer
         },
-        'over': false
+        'over': gameOver
       }
     }
   })
