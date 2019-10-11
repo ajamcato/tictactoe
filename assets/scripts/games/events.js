@@ -6,7 +6,7 @@ let currentPlayer = 'X'
 let winner = false
 let message
 
-const switchPlayer = function() {
+const switchPlayer = function () {
   if (currentPlayer === 'X') {
     $('#game-notification').text('Player Os Turn')
     currentPlayer = 'O'
@@ -55,6 +55,7 @@ const onNewGame = function(event) {
     .catch(ui.onNewGameFailure)
   $('.square').html('')
   console.log(store)
+  $('#game-notification').html('')
 }
 
 // to get game History
@@ -108,7 +109,6 @@ const gameOver = function () {
   }
   return gameOver
 }
-
 
 module.exports = {
   onNewGame,

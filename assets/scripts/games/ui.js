@@ -7,7 +7,6 @@ const createGameSuccess = function (data) {
   $('#message').removeClass('error-message')
   // need to store the game
   store.game = data.game
-  console.log(store.game.cells)
 }
 
 const onUpdateGameSuccess = function (data) {
@@ -27,7 +26,6 @@ const onUpdateGameFailure = function (data) {
 
 const onGameRecordSuccess = function (data) {
   $('.game-history').html(data.games.length)
-  console.log(data)
   // store.game = data.game
 }
 
